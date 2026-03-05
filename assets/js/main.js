@@ -67,7 +67,7 @@ function initThreeJS() {
 
     const colors = [0x2196F3, 0x7C4DFF, 0x00E5FF, 0x64B5F6];
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 4; i++) {
         const geometry = geometryTypes[Math.floor(Math.random() * geometryTypes.length)];
         const material = new THREE.MeshBasicMaterial({
             color: colors[Math.floor(Math.random() * colors.length)],
