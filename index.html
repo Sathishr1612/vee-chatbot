@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEE - AI Conversational Marketing Assistant | Plumb5</title>
+    <meta name="description"
+        content="VEE is an advanced AI-powered conversational assistant that transforms websites into intelligent lead generation and engagement platforms.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <img src="assets/images/plumb5-logo.png" alt="Plumb5" class="loader-logo">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/plumb5-logo.png" alt="Plumb5">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Problem</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Capabilities</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#use-cases">Use Cases</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roi">ROI</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-primary-custom ms-lg-3" href="#demo">
+                            Get Demo
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Meet <span class="gradient-text">VEE</span>
+                            Your <br>AI Revenue Assistant.
+                        </h1>
+                        <p class="hero-subtitle">
+                            An intelligent AI chatbot that engages visitors, qualifies leads, and triggers real-time
+                            sales
+                            automation fully integrated with Plumb5.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#demo" class="btn btn-primary-custom">
+                                <i class="fas fa-play-circle me-2"></i>Watch Demo
+                            </a>
+                            <a href="#features" class="btn btn-outline-custom">
+                                <i class="fas fa-arrow-down me-2"></i>Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chatbot-3d-container">
+                        <div class="chatbot-interface">
+                            <div class="chatbot-header">
+                                <div class="chatbot-avatar">
+                                    <i class="fas fa-robot" style="color: var(--primary-blue);"></i>
+                                </div>
+                                <div class="chatbot-info">
+                                    <h5>VEE</h5>
+                                    <span><i class="fas fa-circle" style="color: #4CAF50; font-size: 8px;"></i>
+                                        Online</span>
+                                </div>
+                            </div>
+                            <div class="chatbot-messages" id="chatMessages">
+                                <div class="message">
+                                    <div class="message-avatar vee">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p>Hi there! I'm VEE, your AI marketing assistant. What challenges are you
+                                            facing with your digital marketing?</p>
+                                    </div>
+                                </div>
+                                <div class="message user-message">
+                                    <div class="message-avatar user">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p>We're struggling with low conversion rates on our website.</p>
+                                    </div>
+                                </div>
+                                <div class="message">
+                                    <div class="message-avatar vee">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p>I understand! Low conversions often stem from poor visitor engagement. Our AI
+                                            chatbot can increase conversions by 40% through personalized conversations.
+                                            Would you like to see how?</p>
+                                    </div>
+                                </div>
+                                <div class="message user-message">
+                                    <div class="message-avatar user">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p>Yes, please show me!</p>
+                                    </div>
+                                </div>
+                                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="chatbot-input">
+                                <input type="text" placeholder="Type your message..." id="chatInput">
+                                <button onclick="sendMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-padding benefits-section features-section" id="benefits">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="section-label">The Challenge</span>
+                <h2 class="section-title">Your Website Gets Traffic.<span class="gradient-text">But Does It
+                        Convert?</span></h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+
+
+                    <div class="benefits-list mt-5">
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>Silent Browsing</h5>
+                                <p>Visitors browse silently without engaging with your content.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>Cold Forms</h5>
+                                <p>Forms feel cold and transactional, driving users away.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>Manual Qualification</h5>
+                                <p>Sales teams waste time qualifying leads manually.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>No Real-time Engagement</h5>
+                                <p>Missing opportunities due to delayed responses.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>No Lead Intelligence</h5>
+                                <p>Lack of structured insights about your visitors.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-smile-beam"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h5>Enhanced Customer Experience</h5>
+                                <p>Deliver contextual, human-like conversations that delight your visitors.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="visual-3d-container fade-in-up">
+                        <div class="orbit-container">
+                            <div
+                                class="orbit-center d-flex flex-column align-items-center justify-content-center text-center">
+                                <i class="fas fa-robot mb-1"></i>
+                                <h2 class="m-0">VEE</h2>
+                            </div>
+                            <div class="orbit-ring orbit-ring-1">
+                                <div class="orbit-item"><i class="fas fa-brain"></i></div>
+                                <div class="orbit-item"><i class="fas fa-comments"></i></div>
+                                <div class="orbit-item"><i class="fas fa-chart-line"></i></div>
+                                <div class="orbit-item"><i class="fas fa-users"></i></div>
+                            </div>
+                            <div class="orbit-ring orbit-ring-2">
+                                <div class="orbit-item"><i class="fas fa-user-secret"></i></div>
+                                <div class="orbit-item"><i class="fas fa-cogs"></i></div>
+                                <div class="orbit-item"><i class="fas fa-sync"></i></div>
+                                <div class="orbit-item"><i class="fas fa-shield-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="section-padding features-section " id="features">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-label">Capabilities</span>
+                <h2 class="section-title">Not Just a <span class="gradient-text">Chatbot.</span> A Conversion Engine.
+                </h2>
+
+            </div>
+            <div class="row g-4 mt-5">
+                <div class="col-md-6 col-lg-6">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI-Powered Conversations</h4>
+                        <p>VEE understands intent, responds naturally, and adapts dynamically using advanced NLP.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Smart Lead Qualification</h4>
+                        <p>Captures budget, need, timeline, company size, and decision-making authority automatically.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Sales Workflow Automation</h4>
+                        <p>Pushes structured leads into Plumb5 CRM instantly and triggers automated journeys.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h4>Revenue Intelligence</h4>
+                        <p>Tracks conversation-to-deal conversion and attributes revenue impact.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works-section features-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-label">Process</span>
+                <h2 class="section-title">How VEE Works</h2>
+            </div>
+            <div class="process-flow fade-in-up">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Visitor Lands</h4>
+                        <p>Visitor arrives on your website</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>AI Engages</h4>
+                        <p>VEE initiates contextual conversation</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Qualifies</h4>
+                        <p>Intelligent qualification questions</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>CRM Sync</h4>
+                        <p>Structured lead pushed to CRM</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h4>Sales Alert</h4>
+                        <p>Sales team notified instantly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases-section features-section py-5" id="use-cases">
+        <div class="container">
+            <div class="section-header text-center fade-in-up" data-aos="fade-up">
+                <span class="section-label">Industries</span>
+                <h2 class="section-title">Built for Every <span class="text-gradient">Industry</span></h2>
+                <p class="section-subtitle">See how VEE transforms businesses across sectors</p>
+            </div>
+            <div class="use-cases-tabs fade-in-up mt-4" data-aos="fade-up" data-aos-delay="200">
+                <ul class="nav nav-pills justify-content-center py-4" id="useCaseTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="realestate-tab" data-bs-toggle="pill"
+                            data-bs-target="#realestate" type="button">
+                            <i class="fas fa-building"></i>Real Estate
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="education-tab" data-bs-toggle="pill" data-bs-target="#education"
+                            type="button">
+                            <i class="fas fa-graduation-cap"></i>Education
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="saas-tab" data-bs-toggle="pill" data-bs-target="#saas"
+                            type="button">
+                            <i class="fas fa-laptop-code"></i>B2B SaaS
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="ecommerce-tab" data-bs-toggle="pill" data-bs-target="#ecommerce"
+                            type="button">
+                            <i class="fas fa-shopping-cart"></i>E-Commerce
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content fade-in-up" id="useCaseTabContent">
+                    <div class="tab-pane fade show active" id="realestate" role="tabpanel">
+                        <div class="use-case-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 use-case">
+                                    <div class="use-case-visual">
+                                        <div class="chat-preview realestate-chat">
+                                            <div class="chat-header">
+                                                <i class="fas fa-robot"></i> VEE Assistant
+                                            </div>
+                                            <div class="chat-messages">
+                                                <div class="msg bot">Hi! Looking for a property? What's your budget
+                                                    range?</div>
+                                                <div class="msg user">$500K - $700K</div>
+                                                <div class="msg bot">Great! Which area are you interested in?</div>
+                                                <div class="msg user">Downtown area</div>
+                                                <div class="msg bot qualification">Qualified Lead: Budget $500K-$700K,
+                                                    Location: Downtown</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="use-case-info">
+                                        <h3><i class="fas fa-building"></i>Real Estate</h3>
+                                        <p>Pre-qualifies budget, location, and property type before sales follow-up,
+                                            ensuring your agents spend time only on serious buyers.</p>
+                                        <ul class="use-case-benefits">
+                                            <li><i class="fas fa-check-circle"></i>Pre-qualify buyer budget instantly
+                                            </li>
+                                            <li><i class="fas fa-check-circle"></i>Capture preferred locations</li>
+                                            <li><i class="fas fa-check-circle"></i>Identify property type preferences
+                                            </li>
+                                            <li><i class="fas fa-check-circle"></i>Schedule property viewings</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="education" role="tabpanel">
+                        <div class="use-case-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="use-case-visual">
+                                        <div class="chat-preview education-chat">
+                                            <div class="chat-header">
+                                                <i class="fas fa-robot"></i> VEE Assistant
+                                            </div>
+                                            <div class="chat-messages">
+                                                <div class="msg bot">Hello! Interested in our programs? Which course?
+                                                </div>
+                                                <div class="msg user">MBA Program</div>
+                                                <div class="msg bot">When are you planning to start?</div>
+                                                <div class="msg user">Fall 2025</div>
+                                                <div class="msg bot qualification">Lead Captured: MBA, Intake: Fall 2025
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="use-case-info">
+                                        <h3><i class="fas fa-graduation-cap"></i>Education</h3>
+                                        <p>Captures course preference, intake period, country, and academic background
+                                            to connect students with the right programs.</p>
+                                        <ul class="use-case-benefits">
+                                            <li><i class="fas fa-check-circle"></i>Capture course interests</li>
+                                            <li><i class="fas fa-check-circle"></i>Track intake preferences</li>
+                                            <li><i class="fas fa-check-circle"></i>Gather academic background</li>
+                                            <li><i class="fas fa-check-circle"></i>Schedule counseling sessions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="saas" role="tabpanel">
+                        <div class="use-case-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="use-case-visual">
+                                        <div class="chat-preview saas-chat">
+                                            <div class="chat-header">
+                                                <i class="fas fa-robot"></i> VEE Assistant
+                                            </div>
+                                            <div class="chat-messages">
+                                                <div class="msg bot">Hi! What challenge are you trying to solve?</div>
+                                                <div class="msg user">Need better lead management</div>
+                                                <div class="msg bot">What's your team size?</div>
+                                                <div class="msg user">50+ people</div>
+                                                <div class="msg bot qualification">B2B Lead: Pain Point Identified,
+                                                    Team: 50+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="use-case-info">
+                                        <h3><i class="fas fa-laptop-code"></i>B2B SaaS</h3>
+                                        <p>Identifies company size, pain points, urgency, and decision-makers to
+                                            accelerate your B2B sales cycle.</p>
+                                        <ul class="use-case-benefits">
+                                            <li><i class="fas fa-check-circle"></i>Identify pain points</li>
+                                            <li><i class="fas fa-check-circle"></i>Qualify company size</li>
+                                            <li><i class="fas fa-check-circle"></i>Find decision makers</li>
+                                            <li><i class="fas fa-check-circle"></i>Assess purchase urgency</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ecommerce" role="tabpanel">
+                        <div class="use-case-content">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="use-case-visual">
+                                        <div class="chat-preview ecommerce-chat">
+                                            <div class="chat-header">
+                                                <i class="fas fa-robot"></i> VEE Assistant
+                                            </div>
+                                            <div class="chat-messages">
+                                                <div class="msg bot">Hi! I noticed you left something in your cart. Need
+                                                    help?</div>
+                                                <div class="msg user">Is there a discount?</div>
+                                                <div class="msg bot">Yes! Use code SAVE10 for 10% off your order!</div>
+                                                <div class="msg bot success">Cart recovered! Customer applied discount.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="use-case-info">
+                                        <h3><i class="fas fa-shopping-cart"></i>E-Commerce</h3>
+                                        <p>Handles objections, nudges cart abandoners, and recommends products to boost
+                                            your online sales.</p>
+                                        <ul class="use-case-benefits">
+                                            <li><i class="fas fa-check-circle"></i>Recover abandoned carts</li>
+                                            <li><i class="fas fa-check-circle"></i>Handle customer objections</li>
+                                            <li><i class="fas fa-check-circle"></i>Recommend products</li>
+                                            <li><i class="fas fa-check-circle"></i>Answer sizing questions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a class="btn btn-primary-custom ms-lg-3" href="#demo">Deploy VEE for My Industry</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features-grid-section py-5 features-section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up" data-aos="fade-up">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Four Layers of <span class="text-gradient">Intelligence</span></h2>
+            </div>
+
+            <div class="features-layers fade-in-up">
+
+                <!-- 1 -->
+                <div class="feature-layer">
+                    <div class="layer-header">
+                        <div class="layer-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Intelligence Layer</h4>
+                    </div>
+
+                    <div class="layer-features">
+                        <div class="feature-tag"><i class="fas fa-check"></i>LLM-based understanding</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Context memory</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Objection handling playbooks</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Multi-step questioning</div>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="feature-layer ">
+                    <div class="layer-header">
+                        <div class="layer-icon icon-2">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Conversion Layer</h4>
+                    </div>
+
+                    <div class="layer-features">
+                        <div class="feature-tag"><i class="fas fa-check"></i>Appointment booking</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Embedded CTAs</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Lead routing rules</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Qualification scoring</div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="feature-layer">
+                    <div class="layer-header">
+                        <div class="layer-icon icon-3">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Customization Layer</h4>
+                    </div>
+
+                    <div class="layer-features">
+                        <div class="feature-tag"><i class="fas fa-check"></i>Brand tone training</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Industry knowledge base</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Hybrid AI + rule logic</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Custom workflows</div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="feature-layer">
+                    <div class="layer-header">
+                        <div class="layer-icon icon-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Enterprise Layer</h4>
+                    </div>
+
+                    <div class="layer-features">
+                        <div class="feature-tag"><i class="fas fa-check"></i>Secure data handling</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>Role-based control</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>API access</div>
+                        <div class="feature-tag"><i class="fas fa-check"></i>On-premise option</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section features-section">
+        <div class="container">
+            <div class="section-header fade-in-up mb-5 ">
+                <span class="section-label">Comparison</span>
+                <h2 class="section-title">VEE vs Basic Chatbots</h2>
+            </div>
+            <div class="comparison-table fade-in-up mt-3">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>Basic Chatbot</th>
+                            <th>VEE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Script-Based</td>
+                            <td><i class="fas fa-check check-icon"></i> Yes</td>
+                            <td><i class="fas fa-times cross-icon"></i> No</td>
+                        </tr>
+
+                        <tr>
+                            <td>NLP Intelligence</td>
+                            <td>Limited</td>
+                            <td><i class="fas fa-check check-icon"></i> Advanced</td>
+                        </tr>
+
+                        <tr>
+                            <td>Lead Scoring</td>
+                            <td><i class="fas fa-times cross-icon"></i> No</td>
+                            <td><i class="fas fa-check check-icon"></i> Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>CRM Native Sync</td>
+                            <td>Optional</td>
+                            <td><i class="fas fa-check check-icon"></i> Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>Revenue Tracking</td>
+                            <td><i class="fas fa-times cross-icon"></i> No</td>
+                            <td><i class="fas fa-check check-icon"></i> Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>Sales Alerts</td>
+                            <td><i class="fas fa-times cross-icon"></i> No</td>
+                            <td><i class="fas fa-check check-icon"></i> Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section py-5 features-section" id="roi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in-up" data-aos="fade-right">
+                    <div class="roi-content  mb-5 mb-md-0">
+                        <span class="section-label">ROI</span>
+                        <h2 class="section-title">Turn Conversations Into <span class="text-gradient">Revenue</span>
+                        </h2>
+                        <p class="roi-subtitle">See the measurable impact VEE delivers for your business</p>
+
+                        <div class="hero-buttons">
+                            <a href="#demo" class="btn btn-primary-custom">
+                                <i class="fas fa-calendar-check me-2"></i>Book Demo
+                            </a>
+                            <a href="#features" class="btn btn-outline-custom">
+                                <i class="fas fa-rocket me-2"></i>Start Free Trial
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up" data-aos="fade-left">
+                    <div class="roi-stats">
+                        <div class="roi-stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">2X-5X</span>
+                                <span class="stat-label">Increase in Qualified Leads</span>
+                            </div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="stat-icon icon-2">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">90%</span>
+                                <span class="stat-label">Reduction in Response Time</span>
+                            </div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="stat-icon icon-3">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">Hours</span>
+                                <span class="stat-label">Saved on Sales Qualification</span>
+                            </div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="stat-icon icon-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">+40%</span>
+                                <span class="stat-label">Visitor Engagement Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section features-section" id="demo">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content fade-in-up">
+                <h2 class="cta-title">Ready to Turn Your Website<br><span class="gradient-text">into a 24/7 AI Sales
+                        Machine?
+
+                    </span>
+                </h2>
+                <p class="cta-subtitle">Get a personalized demo and see how VEE can help your business grow.</p>
+            </div>
+            <div class="demo-form-container fade-in-up">
+                <form id="demoForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                <label for="name"><i class="fas fa-user me-2"></i>Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Email Address"
+                                    required>
+                                <label for="email"><i class="fas fa-envelope me-2"></i>Email Address</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="company" placeholder="Company Name"
+                                    required>
+                                <label for="company"><i class="fas fa-building me-2"></i>Company Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                                <label for="phone"><i class="fas fa-phone me-2"></i>Phone Number</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" id="message" placeholder="Your Message"
+                            style="height: 120px;"></textarea>
+                        <label for="message"><i class="fas fa-comment me-2"></i>Tell us about your needs</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom w-100 py-3">
+                        <i class="fas fa-paper-plane me-2"></i>Request Demo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <div class="row">
+
+                <!-- Brand -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+
+                    <img src="assets/images/plumb5-logo.png" alt="Plumb5" class="footer-logo">
+
+                    <p class="footer-text">
+                        VEE™ is an AI conversational intelligence product developed by Plumb5 that transforms
+                        websites into intelligent revenue-generating platforms through real-time conversations,
+                        lead qualification, and automation.
+                    </p>
+
+                    <div class="social-links mt-4">
+
+                        <a href="https://in.linkedin.com/company/decisive-analytical-systems" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="https://x.com/plumb_five5" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/plumb5" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/@Plumb5Marketing/featured" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+
+                    <div class="footer-links">
+
+                        <h5>Product</h5>
+
+                        <ul>
+                            <li><a href="#benefits">Problem</a></li>
+                            <li><a href="#features">Capabilities</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#use-cases">Use Cases</a></li>
+                            <li><a href="#roi">ROI</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <!-- Company -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+
+                    <div class="footer-links">
+
+                        <h5>Company</h5>
+
+                        <ul>
+                            <li><a href="https://plumb5.com/" target="_blank">About Plumb5</a></li>
+                            <li><a href="https://plumb5.com/blogs" target="_blank">Blog</a></li>
+                            <li><a href="https://plumb5.com/trial" target="_blank">Free Trial</a></li>
+                            <li><a href="https://plumb5.com/contactus" target="_blank">Contact</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-links">
+
+                        <h5>Contact</h5>
+
+                        <ul class="footer-contact">
+
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>
+                                    “SOGASU”, No. 8, 1st Main,<br>
+                                    1st Block, Koramangala,<br>
+                                    Bangalore – 560034
+                                </span>
+                            </li>
+
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>
+                                    <a href="tel:+919345412931">+91 93454 12931</a><br>
+                                    <a href="tel:+919080182471">+91 90801 82471</a>
+                                </span>
+                            </li>
+
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>
+                                    <a href="mailto:support@plumb5.com">support@plumb5.com</a>
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2024 Plumb5. All rights reserved |
+                    <a href="https://plumb5.com/privacy" target="_blank">Privacy Policy</a> |
+                    <a href="https://plumb5.com/terms" target="_blank">Terms of Service</a>
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
